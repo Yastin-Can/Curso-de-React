@@ -1,36 +1,37 @@
-import { useState } from 'react'
-import './app.css'
- 
-export function TwitterFollowCard ({children, userName, initialIsFollowing}) {
-    const [isFollowing, setIsFollowing] = useState(initialIsFollowing)
+import { useState } from "react";
+import "./app.css";
 
-    const text = isFollowing ? 'Siguiendo': 'seguir'
-    const buttonClassName = isFollowing 
-    ? 'md-followCard-button is-following' 
-    : 'md-followCard-button'
+export function TwitterFollowCard({ children, userName, initialIsFollowing }) {
+  const [isFollowing, setIsFollowing] = useState(initialIsFollowing);
 
-    const handleClick = () => {
-        setIsFollowing(!isFollowing)
-    }
+  const text = isFollowing ? "Siguiendo" : "seguir";
+  const buttonClassName = isFollowing
+    ? "md-followCard-button is-following"
+    : "md-followCard-button";
 
-    return (
-        <article className='md-followCard'>
-            <header className='md-followCard-header'>
-                <img 
-                className='md-followCard-avatar'
-                src={`https://unavatar.io/${userName}`} 
-                alt="El avatar de mindudev" />
-                <div>
-                    <strong>{userName}</strong>
-                    <span>@{children}</span>
-                </div>
-            </header>
-            
-            <aside>
-                <button className={buttonClassName} onClick={handleClick}>
-                    {text}
-                </button>
-            </aside>
-        </article>
-    )
+  const handleClick = () => {
+    setIsFollowing(!isFollowing);
+  };
+
+  return (
+    <article className="md-followCard">
+      <header className="md-followCard-header">
+        <img
+          className="md-followCard-avatar"
+          src={`https://unavatar.io/${userName}`}
+          alt="El avatar de mindudev"
+        />
+        <div>
+          <strong>{userName}</strong>
+          <span>@{children}</span>
+        </div>
+      </header>
+
+      <aside>
+        <button className={buttonClassName} onClick={handleClick}>
+          {text}
+        </button>
+      </aside>
+    </article>
+  );
 }
