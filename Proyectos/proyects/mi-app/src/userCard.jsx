@@ -1,5 +1,4 @@
 import './App.css'
-import { useState } from 'react'
 
 export function UserCard({ children, img, prof, ubi, descript }) {
     return (
